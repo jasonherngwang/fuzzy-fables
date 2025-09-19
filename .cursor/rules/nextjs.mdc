@@ -1,0 +1,10 @@
+---
+description: Next.js with App Router best practices
+globs: app/**/*.(ts|tsx)
+alwaysApply: false
+---
+- Use Next.js file-based routing.
+- Use Next.js API route handlers for backend logic.
+- Use zod schemas for validation.
+- Where relevant, use `loading.tsx` for loading states and `error.tsx` for error pages.
+- Prefer RSC, SSR, SSG. Use client components only when necessary for interactivity.

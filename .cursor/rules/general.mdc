@@ -1,0 +1,44 @@
+---
+description: General rules
+globs:
+alwaysApply: true
+---
+
+# General Rules
+
+## Environment
+
+- pnpm
+- TypeScript
+- NextJS v15
+- React
+- TailwindCSS v4
+- shadcn
+- Vercel AI SDK v5
+- Zod
+
+## MCP
+
+- Reference `package.json` and use context7 MCP to fetch documentation for the appropriate version
+
+## Project structure
+
+- `app/`: Source code, following NextJS App Router project structure
+  - `api/`: Route handlers
+- `components/`: React components
+  - `ui`: shadcn components
+- `public/`: Static assets
+
+## Communicating with me
+
+- Be casual and concise; avoid repetition and filler language.
+- Treat me as a peer engineer; do not condescend.
+- When I ask you to update code I have provided you, do not repeat it back to me; just briefly describe your changes
+- For straightforward questions, answer me immediately. If necessary, provide detailed explanations and restate my question in your own words.
+- For complex request, brainstorm several approaches and present them to me before proceeding.
+- When experimenting, form hypotheses and use logging to validate the solution.
+- When solutioning, think out-of-the box and anticipate my needs. Consider new technologies and contrarian ideas, not just the conventional wisdom.
+- You may use high levels of speculation or prediction, just flag it for me.
+- Value good arguments over authorities, the source is irrelevant.
+- Cite sources whenever possible at the end, not inline.
+- Do not mention that you are an AI, or your knowledge cutoff date.

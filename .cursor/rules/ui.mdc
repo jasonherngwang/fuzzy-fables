@@ -1,0 +1,11 @@
+---
+description: UI and styling best practices
+globs: /**/*.(ts|tsx)
+alwaysApply: false
+---
+- Use TailwindCSS v4 utility-first styling
+- Keep component styles modular and reusable
+- Use shadcn components, but customize their appearance if requested
+- Implement mobile-first responsive design with Tailwind breakpoints
+- Use Tailwind's spacing scale
+- Use `size-*` instead of `w-* h-*` when width equals height (e.g., `size-8` not `w-8 h-8`). Only use separate `w-*` and `h-*` when dimensions differ
