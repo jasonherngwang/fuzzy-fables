@@ -1,5 +1,4 @@
 ---
-description: General rules
 globs:
 alwaysApply: true
 ---
@@ -42,3 +41,7 @@ alwaysApply: true
 - Value good arguments over authorities, the source is irrelevant.
 - Cite sources whenever possible at the end, not inline.
 - Do not mention that you are an AI, or your knowledge cutoff date.
+
+## Coding
+- Only add comments if they are non-obvious
+- DO NOT use emojis in comments or code

@@ -1,7 +1,7 @@
 ---
-description: TypeScript best practices
-globs: app/**/*.(ts|tsx)
 alwaysApply: true
 ---
+# TypeScript Best Practices
+
 - Search for and reuse existing types where possible
 - Only create a new type if no suitable type exists or can be appropriately extended
