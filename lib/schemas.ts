@@ -17,9 +17,8 @@ export const LocationSchema = z.object({
 export const StoryConfigSchema = z.object({
   authorStyle: AuthorStyleSchema,
   location: LocationSchema,
-  userPrompt: z.string(),
-  targetAge: z.string(),
-  minChapters: z.number(),
+  userPrompt: z.string().min(1).max(1000),
+  targetAge: z.enum(["3-5", "6-8", "9-12"]),
 });
 
 export const StoryChoiceSchema = z.object({
