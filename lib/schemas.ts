@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-// Core story types
+// Story-related types
 export const AuthorStyleSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -41,22 +41,34 @@ export const StoryStateSchema = z.object({
   userChoices: z.array(z.string()), // Just choice text
 });
 
-// AI SDK v5 structured output schemas
+// AI SDK structured output schemas
 export const ChapterGenerationSchema = z.object({
   title: z.string().describe("The title of the chapter"),
   content: z.string().describe("The main story content for this chapter"),
-  isConclusion: z.boolean().describe("Whether this chapter concludes the story"),
+  isConclusion: z
+    .boolean()
+    .describe("Whether this chapter concludes the story"),
 });
 
 export const ChoiceGenerationSchema = z.object({
-  choices: z.array(z.object({
-    text: z.string().describe("The choice text presented to the user"),
-  })).min(2).max(4).describe("Story choices for the user to select from"),
+  choices: z
+    .array(
+      z.object({
+        text: z.string().describe("The choice text presented to the user"),
+      })
+    )
+    .min(2)
+    .max(4)
+    .describe("Story choices for the user to select from"),
 });
 
 export const SafetyValidationSchema = z.object({
-  isAppropriate: z.boolean().describe("Whether the content is appropriate for children"),
-  reason: z.string().describe("Brief explanation of why the content is or is not appropriate"),
+  isAppropriate: z
+    .boolean()
+    .describe("Whether the content is appropriate for children"),
+  reason: z
+    .string()
+    .describe("Brief explanation of why the content is or is not appropriate"),
 });
 
 // Type exports
@@ -70,7 +82,7 @@ export type ChapterGeneration = z.infer<typeof ChapterGenerationSchema>;
 export type ChoiceGeneration = z.infer<typeof ChoiceGenerationSchema>;
 export type SafetyValidation = z.infer<typeof SafetyValidationSchema>;
 
-// AI SDK v5 data part types for streaming
+// AI SDK data part types for streaming
 export interface StoryProgressData {
   step: "generating" | "validating" | "creating_choices" | "complete";
   currentTask: string;
@@ -92,7 +104,6 @@ export interface SafetyCheckData {
   reason: string;
 }
 
-// Token usage data (from AI SDK v5)
 export interface TokenUsageData {
   promptTokens: number;
   completionTokens: number;
@@ -101,18 +112,16 @@ export interface TokenUsageData {
   timestamp: number;
 }
 
-// Tool call data (from AI SDK v5)
 export interface ToolCallData {
   toolCallId: string;
   toolName: string;
-  input: any;
-  output?: any;
+  input: unknown;
+  output?: unknown;
   error?: string;
   duration?: number;
   timestamp: number;
 }
 
-// Model response metadata (from AI SDK v5)
 export interface ModelResponseData {
   model: string;
   modelId: string;
@@ -121,7 +130,6 @@ export interface ModelResponseData {
   timestamp: number;
 }
 
-// Processing metrics
 export interface ProcessingMetricsData {
   totalDuration: number;
   stepDurations: Record<string, number>;
@@ -130,7 +138,6 @@ export interface ProcessingMetricsData {
   warnings: string[];
 }
 
-// Model configuration
 export interface ModelConfig {
   generation: "gemini-2.5-flash";
   safety: "gemini-2.5-flash";
